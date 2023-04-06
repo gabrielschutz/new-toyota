@@ -3,36 +3,18 @@ import Menu from '../../components/Slidebar/Sidebar';
 import './style.css';
 
 import React, { useState } from 'react';
-import { useHistory } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 const Configuracoes = (props) => {
 
+  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const onSubmit = data => console.log(data);
+
   const [selectedOption, setSelectedOption] = useState('');
- 
-  const [formState, setFormState] = useState({
-    nameMaquina: "",
-    nameOperadores: "",
-    codigoMaquina: "",
-    iotMaquina: ""
-  });
 
   const handleOptionClick = (option) => {
     setSelectedOption(option);
   };
-  const history = useHistory();
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    history.push("/dashboardmaquinas", formState);
-  }
-
-  function handleChange(event) {
-    const { name, value } = event.target;
-    setFormState((prevState) => ({
-      ...prevState,
-      [name]: value
-    }));
-  }
 
   const renderForm = () => {
     switch (selectedOption) {
@@ -57,28 +39,15 @@ const Configuracoes = (props) => {
         );
       case 'opcao2':
         return (
-          <form onSubmit={handleSubmit}>
-            <h2 className="TituloConfig">Cadastros de Maquinas/Processos</h2>
-            <label htmlFor="nome" className='TituloConfig'>Nome Maquina:</label>
-            <div className='container'>
-              <input name="nomeMaquina" value={formState.nameMaquina} onChange={handleChange} id="inputNomeMaquina" className='caixaTexto' type="text" placeholder="Digite o nome da maquina" />
-            </div>
-            <label htmlFor="uuid" className='TituloConfig'>Operador(es):</label>
-            <div className='container'>
-              <input name="operadores" value={formState.nameOperadores} onChange={handleChange} id="inputNomeOperador" className='caixaTexto' type="text" placeholder="Digite o do operador ou operadores da maquina" />
-            </div>
-            <label htmlFor="uuid" className='TituloConfig'>Codigo Maquina:</label>
-            <div className='container'>
-              <input name="codigoMaquina" value={formState.codigoMaquina} onChange={handleChange} id="inputCodMaquina" className='caixaTexto' type="text" placeholder="Digite o cod da Maquina" />
-            </div>
-            <label htmlFor="uuid" className='TituloConfig'>IOT da Maquina:</label>
-            <div className='container'>
-              <input name="iotMaquina" value={formState.iotMaquina} onChange={handleChange} id="inputIotMaquina" className='caixaTexto' type="text" placeholder="Digite o IOT da maquina" />
-            </div>
-            <div className='divBotaoSub'>
-              <button className='BotaoEnviar' type="submit">Enviar</button>
-            </div>
-            </form>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            {/* register your input into the hook by invoking the "register" function */}
+            <input defaultValue="test" {...register("example")} />
+            {/* include validation with required or other standard HTML validation rules */}
+            <input {...register("exampleRequired", { required: true })} />
+            {/* errors will return when field validation fails  */}
+            {errors.exampleRequired && <span>This field is required</span>}
+            <input type="submit" />
+          </form>
 
         );
       case 'opcao3':

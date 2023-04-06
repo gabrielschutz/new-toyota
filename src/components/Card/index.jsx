@@ -1,6 +1,7 @@
 import './styles.css'
 
-export function Card(dados) {
+export function Card({dados}) {
+  console.log(dados)
   return (
     <div className="caixa-info">
       <div className="info-section">
