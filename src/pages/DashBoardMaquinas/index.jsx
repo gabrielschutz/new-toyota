@@ -2,26 +2,28 @@ import Menu from '../../components/Slidebar/Sidebar';
 import { Card } from '../../components/Card';
 import './style.css';
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 
 function DashboardMaquinas() {
 
-  const teste = {
+  const obj = {
     nomeMaquina: "Valor",
-    nomeOperador: "Valor",
-    codigo: "Valor",
-    iot:"Valor"
+    nomeOperador: "Operador",
+    codigo: 12,
+    iot: "AA"
   }
 
-  return (
 
+  return (
     <div>
       <Menu />
       <div className="DashBoardMaquinas-section">
-        <Card dados={teste}/>
-        <Card dados={teste}/>
-        <Card dados={teste}/>
         <h1>DashboardMaquinas</h1>
-        <p>Teste to the  DashboardMaquinas  page.</p>
+        <div className='container_flex'>
+        <Card dados={obj}/>
+        <Card dados={obj}/>
+        <Card dados={obj}/>
+        </div>
       </div>
     </div>
   )
