@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins" , sans-serif;
+}
+
+
+.configs-section{
+  position: relative;
+  background: #E4E9F7;
+  min-height: 100vh;
+  top: 0;
+  left: 78px;
+  width: calc(100% - 78px);
+  transition: all 0.5s ease;
+  z-index: 2;
+}
+.sidebar.open ~ .configs-section{
+  left: 250px;
+  width: calc(100% - 250px);
+}
+.configs-section .text{
+  display: inline-block;
+  color: #11101d;
+  font-size: 25px;
+  font-weight: 500;
+  margin: 18px
+}
+
+.TituloConfig{
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+.TituloConfig h1{
+  border: 2px solid #11101D;
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.Botoes{
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+
+}
+
+.Botao {
+  background-color: #11101D;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: px 2px;
+  cursor: pointer;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.Botao:hover {
+  background-color: #939393;
+}
+
+.BotaoEnviar {
+  border: none;
+  color: white;
+  background-color: #11101D;
+  padding: 12px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+.BotaoEnviar:hover {
+  background-color: #939393;
+}
+
+.divBotaoSub {
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+  max-width: 200px;
+  margin: 0 auto;
+}
+
+
+.container {
+  text-align: center;
+  margin-top: 10px;
+  
+}
+
+.caixaTexto {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  width: 20%;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  padding: 10px;
+}
+
+
+
+@media (max-width: 420px) {
+  .sidebar li .tooltip{
+    display: none;
+  }
+}
+
+
+

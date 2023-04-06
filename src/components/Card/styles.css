@@ -1,0 +1,26 @@
+.caixa-info {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: #11101D;
+  padding: 20px;
+  border-radius: 10px;
+  color: white;
+}
+
+.info-section {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.info-section label {
+  color: white;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.info-section span {
+  color: white;
+}
