@@ -10,6 +10,7 @@
   width: calc(100% - 78px);
   transition: all 0.5s ease;
   z-index: 2;
+  margin-left: 78px;
 }
 
 .container_flex{
